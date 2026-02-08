@@ -35,17 +35,18 @@ import areaRoutes from "./Routes/areaRoutes";
 import operatorRoutes from "./Routes/operatorRoutes";
 import filtersRoutes from './Routes/filtersRoutes';
 import { authorizeByModulePath } from './middleware/authorize.js';
-import qrRoutes from './Routes/qrRoutes';
-import conversionRoutes from './Routes/conversionRoutes';
-import wasteContainerRoutes from './Routes/wasteContainerRoutes';
-import wasteCollectionRoutes from './Routes/wasteCollectionRoutes';
-import additivesRoutes from './Routes/additivesRoutes';
-import userRoutes from "./Routes/userRoutes"; // 1. Import user routes
+import qrRoutes from './Routes/qrRoutes.js';
+import conversionRoutes from './Routes/conversionRoutes.js';
+import wasteContainerRoutes from './Routes/wasteContainerRoutes.js';
+import wasteCollectionRoutes from './Routes/wasteCollectionRoutes.js';
+import additivesRoutes from './Routes/additivesRoutes.js';
+import userRoutes from "./Routes/userRoutes.js"; // 1. Import user routes
 // I.O.T Stages imports:
-import S1_esp32Routes from './Routes/S1_esp32Routes';
+import S1_esp32Routes from './Routes/S1_esp32Routes.js';
+import esp32Routes from './Routes/esp32Routes.js';
 
-import wasteInputRoutes from "./Routes/wasteInputRoutes";
-import mapRoutes from './Routes/mapRoutes';
+import wasteInputRoutes from "./Routes/wasteInputRoutes.js";
+import mapRoutes from './Routes/mapRoutes.js';
 // Build allowlist from env (FRONT_END_ORIGINS)
 const allowedOrigins = FRONTEND_ORIGINS_ARRAY;
 
@@ -153,6 +154,7 @@ app.use("/api/upload", uploadRoutes);
 
 // mount esp32 stages
 app.use('/api/s1-esp32', S1_esp32Routes)
+app.use('/api/esp32', esp32Routes)
 
 // ❌ REMOVE THIS LINE - it's causing issues
 // app.use(authenticate);  // Don't apply global auth middleware
